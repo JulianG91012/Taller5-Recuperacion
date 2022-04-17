@@ -39,5 +39,21 @@ public class Conjuntos {
         return intersection;
     }
     
+    public List<Comparable> interseccionNoOrdeanados()
+    {
+        //Se crea una lista de tipo Comparable para almacenar los elementos que encuentre en común
+        List<Comparable> intersection = new ArrayList<Comparable>();
+        Quick.sort(conjunto1);
+        Quick.sort(conjunto2);
+        //Ciclo foreach
+        for(Comparable i : conjunto1) {
+            for(Comparable j : conjunto2) {
+                if(j.equals(i)) {
+                    intersection.add(j);
+                }
+            }
+        }
+        return intersection;
+    }
 }
 

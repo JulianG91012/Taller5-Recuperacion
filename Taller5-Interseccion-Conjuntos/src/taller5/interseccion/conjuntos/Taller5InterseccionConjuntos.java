@@ -5,6 +5,8 @@
 package taller5.interseccion.conjuntos;
 
 import edu.princeton.cs.algs4.StdOut;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,12 +18,21 @@ public class Taller5InterseccionConjuntos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Comparable[] a = {1,2,3,4,4};
-        Comparable[] b = {3,4,5,6};
+        //Se definen 2 listas ordenadas para su posterior uso
+        Comparable[] a = {"A", "B", "C", "D", "E"};
+        Comparable[] b = {"D", "E", "F", "G"};
+        //Se definen 2 listas No Ordenadas para su posterior uso
+        Comparable[] c = {"Taller", "Recuperacion","Abecedario"};
+        Comparable[] d = {"Recuperación", "Abecedario"};
+        //La respuesta debería ser: 1,3,7
         
-        Conjuntos c = new Conjuntos(a,b);
-        
-        StdOut.println("El resultado de la Intersección es de:" + c.interseccionOrdenada());
+        //Se crea el conjunto C que define qué conjuntos serán evaluados
+        Conjuntos x = new Conjuntos(a,b);
+        Conjuntos y = new Conjuntos(c,d);
+        StdOut.println("El resultado de la Intersección de conjuntos ordenados es de:\n" + x.interseccionOrdenada());
+        StdOut.println("El resultado de la Intersección de conjuntos No Ordenados es de:\n" + y.interseccionNoOrdeanados());
     }
+    
+    
     
 }
