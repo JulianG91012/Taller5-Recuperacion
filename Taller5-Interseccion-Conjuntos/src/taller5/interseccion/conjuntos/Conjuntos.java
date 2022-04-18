@@ -12,7 +12,7 @@ import java.util.List;
  * @author Julian Gómez
  */
 public class Conjuntos {
-    
+    /*
     private Comparable[] conjunto1;
     private Comparable[] conjunto2;
     
@@ -22,7 +22,74 @@ public class Conjuntos {
         conjunto1 = a;
         conjunto2 = b;
     }
-    /*
+    */
+    public Conjuntos()
+    { 
+    }
+    public static List<Comparable> interseccionOrdenados(Comparable[] conjunto1, Comparable[] conjunto2)
+    {
+        List<Comparable> intersection = new ArrayList<Comparable>();
+        int i = 0;
+        int j = 0;
+        int conjMin = 0;
+        Comparable[] conjuntoMenor;
+        Comparable[] conjuntoMayor;
+        
+        //Se debe comparar el tamaño de ambos conjuntos, para tomar el menor
+        if(conjunto1.length>=conjunto2.length)
+            conjMin = conjunto2.length;
+        else if(conjunto1.length<conjunto2.length)
+            conjMin = conjunto1.length;
+        //Ciclo para realizar comparaciones segun el tamaño del ciclo más pequeño
+        while(j < conjMin){
+            //Compara si es mayor
+            if(conjunto1[i].compareTo(conjunto2[j]) > 0)
+                    j++;
+            //Compara si es menor
+            else if(conjunto1[i].compareTo(conjunto2[j]) < 0)
+                    i++;
+            else if(conjunto1[i].compareTo(conjunto2[j]) == 0)
+                    intersection.add(conjunto1[i]);
+                    i++;
+                    j++;
+            }
+        return intersection;
+        
+        
+    }
+    
+    public static List<Comparable> interseccionNoOrdeanados(Comparable[] conjunto1, Comparable[] conjunto2)
+    {
+        //Se crea una lista de tipo Comparable para almacenar los elementos que encuentre en común
+        List<Comparable> intersection = new ArrayList<Comparable>();
+        int i = 0;
+        int j = 0;
+        int conjMin = 0;
+        Quick.sort(conjunto1);
+        Quick.sort(conjunto2);
+        
+        //Se debe comparar el tamaño de ambos conjuntos, para tomar el menor
+        if(conjunto1.length>=conjunto2.length)
+            conjMin = conjunto2.length;
+        else if(conjunto1.length<conjunto2.length)
+            conjMin = conjunto1.length;
+        //Ciclo para realizar comparaciones segun el tamaño del ciclo más pequeño
+        while(j < conjMin){
+            //Compara si es mayor
+            if(conjunto1[i].compareTo(conjunto2[j]) > 0)
+                    j++;
+            //Compara si es menor
+            else if(conjunto1[i].compareTo(conjunto2[j]) < 0)
+                    i++;
+            else if(conjunto1[i].compareTo(conjunto2[j]) == 0)
+                    intersection.add(conjunto1[i]);
+                    i++;
+                    j++;
+            }
+        return intersection;
+}
+
+/*
     public List<Comparable> interseccionOrdenada()
     {
         //Se crea una lista de tipo Comparable para almacenar los elementos que encuentre en común
@@ -38,60 +105,3 @@ public class Conjuntos {
         }
         return intersection;
     }*/
-    
-    public List<Comparable> interseccionOrdenados()
-    {
-        List<Comparable> intersection = new ArrayList<Comparable>();
-        int i = 0;
-        int j = 0;
-        //Se debe comparar el tamaño de ambos conjuntos, para tomar el menor
-        
-        
-        if(conjunto1.length>conjunto2.length)
-        {
-            while(j < conjunto2.length){
-            //Compara si es mayor
-            if(conjunto1[i].compareTo(conjunto2[j]) > 0)
-                    j++;
-            //Compara si es menor
-            else if(conjunto1[i].compareTo(conjunto2[j]) < 0)
-                    i++;
-            else if(conjunto1[i].compareTo(conjunto2[j]) == 0)
-                    intersection.add(conjunto1[i]);
-                    i++;
-                    j++;
-            }
-        }
-        return intersection;
-        
-        
-    }
-    
-    public List<Comparable> interseccionNoOrdeanados()
-    {
-        //Se crea una lista de tipo Comparable para almacenar los elementos que encuentre en común
-        List<Comparable> intersection = new ArrayList<Comparable>();
-        int i = 0;
-        int j = 0;
-        Quick.sort(conjunto1);
-        Quick.sort(conjunto2);
-        
-        if(conjunto1.length>conjunto2.length)
-        {
-            while(j < conjunto2.length){
-            //Compara si es mayor
-            if(conjunto1[i].compareTo(conjunto2[j]) > 0)
-                    j++;
-            //Compara si es menor
-            else if(conjunto1[i].compareTo(conjunto2[j]) < 0)
-                    i++;
-            else if(conjunto1[i].compareTo(conjunto2[j]) == 0)
-                    intersection.add(conjunto1[i]);
-                    i++;
-                    j++;
-            }
-        }
-        return intersection;
-    }
-}
-
