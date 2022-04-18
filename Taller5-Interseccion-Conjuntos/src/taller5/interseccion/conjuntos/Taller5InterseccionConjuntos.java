@@ -21,17 +21,16 @@ public class Taller5InterseccionConjuntos {
         //Se definen 2 listas ordenadas para su posterior uso
         //Comparable[] a = {"A", "B", "C", "D", "E"};
         //Comparable[] b = {"D", "E", "F", "G"};
-        Comparable[] a = {7,8,9,10,11};
-        Comparable[] b = {3,4,8,9};        
+        Comparable[] a = {3,7,8,9,10,11,12};
+        Comparable[] b = {3,4,8,9,11};        
         //Se definen 2 listas No Ordenadas para su posterior uso
-        Comparable[] c = {"Taller", "Recuperacion","Abecedario"};
-        Comparable[] d = {"Recuperación", "Abecedario"};
-        //La respuesta debería ser: 1,3,7
+        Comparable[] c = {"Taller", "Recuperación","Abecedario", "Hola", "Adios"};
+        Comparable[] d = {"Recuperación", "Abecedario", "Tamarindo", "Hola"};
         
         //Se crea el conjunto C que define qué conjuntos serán evaluados
         //Conjuntos x = new Conjuntos(a,b);
         //Conjuntos y = new Conjuntos(c,d);
-        StdOut.println("El resultado de la Intersección de conjuntos ordenados es de:\n" + Conjuntos.interseccionOrdenados(a,b));
+        StdOut.println(Conjuntos.interseccionOrdenados(a, b));
         StdOut.println("El resultado de la Intersección de conjuntos No Ordenados es de:\n" + Conjuntos.interseccionNoOrdeanados(c,d));
     }
     

@@ -28,67 +28,119 @@ public class Conjuntos {
     }
     public static List<Comparable> interseccionOrdenados(Comparable[] conjunto1, Comparable[] conjunto2)
     {
+        //Se crea una lista Dinámica para guardar la cantidad de elementos en común
         List<Comparable> intersection = new ArrayList<Comparable>();
+        //Se crean los indicadores de las posiciones para ambos conjuntos
         int i = 0;
         int j = 0;
-        int conjMin = 0;
-        Comparable[] conjuntoMenor;
-        Comparable[] conjuntoMayor;
-        
-        //Se debe comparar el tamaño de ambos conjuntos, para tomar el menor
+        //Se crean variables para almacenar el tamaño mínimo y máximo de los conjuntos
+        int tamMin = 0;
+        int tamMax = 0;
+        //Se evalúa cuál de los dos conjuntos es menor y mayor
+        if(conjunto1.length > conjunto2.length)
+        {
+            tamMin = conjunto2.length;
+            tamMax = conjunto1.length;
+        }
+        else
+        {
+            tamMin = conjunto1.length;
+            tamMax = conjunto2.length;
+        }
+        //Se crean dos conjuntos que tomarán los valores de los ingresados
+        Comparable[] conjPequeño = new Comparable[tamMin];
+        Comparable[] conjGrande = new Comparable[tamMax];
         if(conjunto1.length>=conjunto2.length)
-            conjMin = conjunto2.length;
+        {
+            conjPequeño = conjunto2;
+            conjGrande = conjunto1;
+        }
         else if(conjunto1.length<conjunto2.length)
-            conjMin = conjunto1.length;
+        {
+            conjPequeño = conjunto1;
+            conjGrande = conjunto2;
+        }
         //Ciclo para realizar comparaciones segun el tamaño del ciclo más pequeño
-        while(j < conjMin){
+        while(j < tamMin){
             //Compara si es mayor
-            if(conjunto1[i].compareTo(conjunto2[j]) > 0)
+            if(conjGrande[i].compareTo(conjPequeño[j]) > 0)
+            {
                     j++;
+            }
             //Compara si es menor
-            else if(conjunto1[i].compareTo(conjunto2[j]) < 0)
+            else if(conjGrande[i].compareTo(conjPequeño[j]) < 0)
+            {
                     i++;
-            else if(conjunto1[i].compareTo(conjunto2[j]) == 0)
+            }
+            else if(conjGrande[i].compareTo(conjPequeño[j]) == 0)
+            {
                     intersection.add(conjunto1[i]);
                     i++;
                     j++;
             }
+        }
         return intersection;
-        
-        
     }
     
     public static List<Comparable> interseccionNoOrdeanados(Comparable[] conjunto1, Comparable[] conjunto2)
     {
+        Quick.sort(conjunto1);
+        Quick.sort(conjunto2);
         //Se crea una lista de tipo Comparable para almacenar los elementos que encuentre en común
         List<Comparable> intersection = new ArrayList<Comparable>();
         int i = 0;
         int j = 0;
-        int conjMin = 0;
-        Quick.sort(conjunto1);
-        Quick.sort(conjunto2);
-        
+        int tamMin = 0;
+        int tamMax = 0;
+        if(conjunto1.length > conjunto2.length)
+        {
+            tamMin = conjunto2.length;
+            tamMax = conjunto1.length;
+        }
+        else
+        {
+            tamMin = conjunto1.length;
+            tamMax = conjunto2.length;
+        }
+        Comparable[] conjPequeño = new Comparable[tamMin];
+        Comparable[] conjGrande = new Comparable[tamMax];
         //Se debe comparar el tamaño de ambos conjuntos, para tomar el menor
+        //El conjunto 2 es más pequeño: j
         if(conjunto1.length>=conjunto2.length)
-            conjMin = conjunto2.length;
+        {
+            conjPequeño = conjunto2;
+            conjGrande = conjunto1;
+        }
+        //El conjunto 1 es más pequeño: i
         else if(conjunto1.length<conjunto2.length)
-            conjMin = conjunto1.length;
+        {
+            conjPequeño = conjunto1;
+            conjGrande = conjunto2;
+        }
+        
         //Ciclo para realizar comparaciones segun el tamaño del ciclo más pequeño
-        while(j < conjMin){
+        while(j < tamMin && i < tamMax){
             //Compara si es mayor
-            if(conjunto1[i].compareTo(conjunto2[j]) > 0)
+            if(conjGrande[i].compareTo(conjPequeño[j]) > 0)
+            {
                     j++;
+            }
             //Compara si es menor
-            else if(conjunto1[i].compareTo(conjunto2[j]) < 0)
+            else if(conjGrande[i].compareTo(conjPequeño[j]) < 0)
+            {
                     i++;
-            else if(conjunto1[i].compareTo(conjunto2[j]) == 0)
+            }
+            else if(conjGrande[i].compareTo(conjPequeño[j]) == 0)
+            {
                     intersection.add(conjunto1[i]);
                     i++;
                     j++;
             }
+        }
         return intersection;
+        
+    }
 }
-
 /*
     public List<Comparable> interseccionOrdenada()
     {
