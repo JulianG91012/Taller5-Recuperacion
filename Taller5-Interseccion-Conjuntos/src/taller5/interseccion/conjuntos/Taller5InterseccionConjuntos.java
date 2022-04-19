@@ -18,32 +18,32 @@ public class Taller5InterseccionConjuntos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Se definen 2 listas ordenadas para su posterior uso
-        //Comparable[] a = {"A", "B", "C", "D", "E"};
-        //Comparable[] b = {"D", "E", "F", "G"};
+        //Conjuntos para las pruebas:
         Comparable[] a = {3,7,8,9,10,11,12,13};
-        Comparable[] b = {3,4,8,9,11,12}; 
-        Comparable[] f = {"D", "E", "F", "G", "H"};
-        Comparable[] e = {"A", "B", "C", "D", "E", "G", "H"};
-        //Se definen 2 listas No Ordenadas para su posterior uso
+        Comparable[] b = {3,4,8,9,11};
         Comparable[] c = {"Taller", "Recuperación","Abecedario", "Hola", "Adios"};
         Comparable[] d = {"Recuperación", "Abecedario", "Tamarindo", "Hola"};
+        Comparable[] e = {"A", "B", "C", "D", "E", "G", "H"};
+        Comparable[] f = {"D", "E", "F", "G", "H"};
+        Comparable[] x = {"Manzana", "Pera", "Piña", "Taller", "Agua"};
+        Comparable[] y = {1,2,3,4,5};
         
         
-        StdOut.println("El resultado de la intersección Ordenada, a b es: " + Conjuntos.interseccionOrdenados(a, b));
-        StdOut.println("El resultado de la intersección Ordenada, b a es: " + Conjuntos.interseccionOrdenados(b, a));
-        StdOut.println("El resultado de la intersección Ordenada, e f es: " + Conjuntos.interseccionOrdenados(e, f));
-        StdOut.println("El resultado de la intersección Ordenada, f e es: " + Conjuntos.interseccionOrdenados(f, e));
-        StdOut.println("El resultado de la intersección Ordenada, la versión de prueba a b es de " + Conjuntos.interseccionOrdenadaPrueba(a,b));
-        StdOut.println("El resultado de la intersección Ordenada, la versión de prueba b a es de " + Conjuntos.interseccionOrdenadaPrueba(b,a));
-        StdOut.println("El resultado de la intersección Ordenada, la versión de prueba a a es de " + Conjuntos.interseccionOrdenadaPrueba(a,a));
-        StdOut.println("El resultado de la intersección Ordenada, la versión de prueba a a es de " + Conjuntos.interseccionOrdenadaPrueba(b,b));
-        StdOut.println("El resultado de la intersección Ordenada, la versión de prueba e f es de " + Conjuntos.interseccionOrdenadaPrueba(e,f));
-        StdOut.println("El resultado de la intersección Ordenada, la versión de prueba f e es de " + Conjuntos.interseccionOrdenadaPrueba(f,e));
-        //StdOut.println("El resultado de la intersección Ordenada, la versión de prueba es de " + Conjuntos.interseccionOrdenadaPrueba(a,b));
-        //StdOut.println("El resultado de la intersección Ordenada, prueba 2 es " + Conjuntos.interseccionOrdenados(e, f));
-        //StdOut.println("El resultado de la intersección Ordenada, la versión de prueba 2 es de " + Conjuntos.interseccionOrdenadaPrueba(e,f));
-        //StdOut.println("El resultado de la Intersección de conjuntos No Ordenados es de:\n" + Conjuntos.interseccionNoOrdeanados(c,d));
+        StdOut.println("Intersección Ordenada, conjuntos numericos diferentes a b es: " + Conjuntos.interseccionOrdenados(a, b));
+        StdOut.println("Intersección Ordenada, conjuntos numericos diferentes b a es: " + Conjuntos.interseccionOrdenados(b, a));
+        StdOut.println("Intersección Ordenada, conjuntos de strings diferentes, e f es: " + Conjuntos.interseccionOrdenados(e, f));
+        StdOut.println("Intersección Ordenada, conjuntos de strings diferentes, f e es: " + Conjuntos.interseccionOrdenados(f, e));
+        StdOut.println("Intersección Ordenada, mismo conjunto de numeros a a es: " + Conjuntos.interseccionOrdenados(a,a));
+        StdOut.println("Intersección Ordenada, mismo conjunto de numeros b b es: " + Conjuntos.interseccionOrdenados(b,b));
+        StdOut.println("Intersección Ordenada, conjuntos numericos diferentes, mismo tamaño y b es: " + Conjuntos.interseccionOrdenados(y,b));
+        StdOut.println("Intersección Ordenada, conjuntos numericos diferentes, mismo tamaño b y es: " + Conjuntos.interseccionOrdenados(b,y));
+        
+        StdOut.println("Intersección No Ordenada, conjuntos String diferentes c d es: " + Conjuntos.interseccionNoOrdeanados(c,d));
+        StdOut.println("Intersección No Ordenada, conjuntos String diferentes d c es: " + Conjuntos.interseccionNoOrdeanados(d,c));
+        StdOut.println("Intersección No Ordenada, conjuntos String diferentes sin elementos en común d x es: " + Conjuntos.interseccionNoOrdeanados(d,x));
+        StdOut.println("Intersección No Ordenada, conjuntos String diferentes sin elementos en común x d es: " + Conjuntos.interseccionNoOrdeanados(x,d));
+        StdOut.println("Intersección No Ordenada, conjuntos String diferentes c x es: " + Conjuntos.interseccionNoOrdeanados(c,x));
+        StdOut.println("Intersección No Ordenada, conjuntos String diferentes x c es: " + Conjuntos.interseccionNoOrdeanados(x,c));
     }
     
     
