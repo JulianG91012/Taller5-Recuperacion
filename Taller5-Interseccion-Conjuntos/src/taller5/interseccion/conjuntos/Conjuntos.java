@@ -29,7 +29,7 @@ public class Conjuntos {
     public static List<Comparable> interseccionOrdenados(Comparable[] conjunto1, Comparable[] conjunto2)
     {
         //Se crea una lista Dinámica para guardar la cantidad de elementos en común
-        List<Comparable> intersection = new ArrayList<Comparable>();
+        List<Comparable> intersection = new ArrayList<>();
         //Se crean los indicadores de las posiciones para ambos conjuntos
         int i = 0;
         int j = 0;
@@ -60,8 +60,9 @@ public class Conjuntos {
             conjPequeño = conjunto1;
             conjGrande = conjunto2;
         }
+        //System.out.println("el conjunto más grande es el: " + conjGrande.length + " el más pequeño es: " + conjPequeño.length);
         //Ciclo para realizar comparaciones segun el tamaño del ciclo más pequeño
-        while(j < tamMin){
+        while(i <= (tamMin-1)){
             //Compara si es mayor
             if(conjGrande[i].compareTo(conjPequeño[j]) > 0)
             {
@@ -87,7 +88,7 @@ public class Conjuntos {
         Quick.sort(conjunto1);
         Quick.sort(conjunto2);
         //Se crea una lista de tipo Comparable para almacenar los elementos que encuentre en común
-        List<Comparable> intersection = new ArrayList<Comparable>();
+        List<Comparable> intersection = new ArrayList<>();
         int i = 0;
         int j = 0;
         int tamMin = 0;
@@ -140,6 +141,58 @@ public class Conjuntos {
         return intersection;
         
     }
+    public static List<Comparable> interseccionOrdenadaPrueba(Comparable[] conjunto1, Comparable[] conjunto2)
+    {
+        List<Comparable> intersection = new ArrayList<>();
+        int i = 0;
+        int j = 0;
+        //Si el segundo conjunto es menor al primero
+        if(conjunto1.length>conjunto2.length)
+        {
+            //Se repite el ciclo hasta que no hayan más valores que validar en el conjunto más pequeño
+            while(j <= (conjunto2.length-1))
+            {
+                //Compara si es mayor
+                if(conjunto1[i].compareTo(conjunto2[j]) > 0)
+                {
+                    j++;
+                }
+                else if(conjunto1[i].compareTo(conjunto2[j]) < 0)
+                {
+                    i++;
+                }
+                else if(conjunto1[i].compareTo(conjunto2[j]) == 0)
+                {
+                    intersection.add(conjunto1[i]);
+                    i++;
+                    j++;
+                }
+            }
+        }
+        else if(conjunto1.length<=conjunto2.length)
+        {
+            while(i <= (conjunto1.length-1))
+            {
+                //Compara si es mayor
+                if(conjunto1[i].compareTo(conjunto2[j]) > 0)
+                {
+                    j++;
+                }
+                else if(conjunto1[i].compareTo(conjunto2[j]) < 0)
+                {
+                    i++;
+                }
+                else if(conjunto1[i].compareTo(conjunto2[j]) == 0)
+                {
+                    intersection.add(conjunto1[i]);
+                    i++;
+                    j++;
+                }
+            }
+        }
+        return intersection;
+    }
+    
 }
 /*
     public List<Comparable> interseccionOrdenada()
