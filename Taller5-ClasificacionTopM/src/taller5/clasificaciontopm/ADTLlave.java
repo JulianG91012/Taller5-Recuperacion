@@ -4,6 +4,14 @@
  */
 package taller5.clasificaciontopm;
 
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.MinPQ;
+import edu.princeton.cs.algs4.ST;
+import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.StdOut;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Julian Gómez
@@ -32,6 +40,9 @@ public class ADTLlave <K ,Value extends Comparable <Value>> implements ParejaLla
     {
         return valor;
     }
+    
+    //
+    
 }
 
 
