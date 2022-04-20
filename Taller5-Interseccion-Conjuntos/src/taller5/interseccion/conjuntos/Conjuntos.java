@@ -28,6 +28,7 @@ public class Conjuntos {
     }
     public static List<Comparable> interseccionOrdenados(Comparable[] conjunto1, Comparable[] conjunto2)
     {
+        //Se crea una lista que almacena datos Comparables para almacenar los elementos que encuentre en común
         List<Comparable> intersection = new ArrayList<>();
         int i = 0, j = 0;
         //Si el segundo conjunto es menor al primero
@@ -86,7 +87,7 @@ public class Conjuntos {
     {
         Quick.sort(conjunto1);
         Quick.sort(conjunto2);
-        //Se crea una lista de tipo Comparable para almacenar los elementos que encuentre en común
+        //Se crea una lista que almacena datos Comparables para almacenar los elementos que encuentre en común
         List<Comparable> intersection = new ArrayList<>();
         int i = 0, j = 0;
         //Si el segundo conjunto es menor al primero
